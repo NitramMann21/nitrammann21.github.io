@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<title>JTA Guide - GitHub Pages</title>
+		<link rel="stylesheet" href="stylesheet.css"/>
+		<meta charset="utf-8"/>
+	</head>
+  <body>
+    <div id="all">
+      <div id="header">
+        <ul id="topnavigation">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="https://www.github.com/NitramMann21/JTA">GitHub</a></li>
+        </ul>
+      </div>
+
+      <div id="body">
+        <div id="navigation">
+          <ul>
+            <li><a href="index.html">Welcome</a></li>
+            <li><a href="gettingstarted.html">Getting started</a></li>
+            <li><a href="management.html">Management</a></li>
+            <li><a href="creatingachatbot.html">Creating a Chatbot</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="contributing.html">Contributing</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div id="page">
+          <h1>Classes</h1>
+          <h2>JTA</h2>
+          <p>
+            The main class of the library: You can not create instances. This is an utility class which is used by the whole API. It saves data like the HTTP client or the logger.
+          </p>
+          <h2>JTABot</h2>
+          <p>
+            This class represents a bot which can send messages, manage stream data and much more! To get an instance, call <span class="codeblock">JTABotBuilder#create(String, String)</span>.
+          </p>
+          <h2>User</h2>
+          <p>
+            This class represents a twitch user. You can get blocked users, the follows, the stream schedule and much more! To get an instance, call <span class="codeblock">JTABot.getUserByName(String)</span> or <span class="codeblock">JTABot.getUserById(long)</span>.
+          </p>
+          <h2>Channel</h2>
+          <p>
+            This class represents a twitch channel. You can get banned users, the chat, the follower count, the team, the user, and much, MUCH more! Also, you can set the stream language / title, start a poll and a prediction. To get an instance, you need an user. Then just call <span class="codeblock">getChannel()</span> and you have the channel.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

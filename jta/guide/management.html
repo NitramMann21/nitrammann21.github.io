@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<title>JTA Guide - GitHub Pages</title>
+		<link rel="stylesheet" href="stylesheet.css"/>
+		<meta charset="utf-8"/>
+	</head>
+  <body>
+    <div id="all">
+      <div id="header">
+        <ul id="topnavigation">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="https://www.github.com/NitramMann21/JTA">GitHub</a></li>
+        </ul>
+      </div>
+
+      <div id="body">
+        <div id="navigation">
+          <ul>
+            <li><a href="index.html">Welcome</a></li>
+            <li><a href="gettingstarted.html">Getting started</a></li>
+            <li><a href="management.html">Management</a></li>
+            <li><a href="creatingachatbot.html">Creating a Chatbot</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="contributing.html">Contributing</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div id="page">
+          <h1>User and Channel Management</h1>
+          <p>
+            You may want to manage some stuff, e.g. a channel's stream title. Just call <span class="codeblock">Channel#setStreamTitle(String)</span> and...<br><br>
+            Nope, not gonna work. You will get an <span class="codeblock">ErrorResponseException</span>. What does this mean and how can you fix this? The reason is simple: You don't have the permission to manage the stream.<br>
+            Now, how can you fix this? You need to set the user access token. Next question: How do you get user access tokens? You can follow <a href="https://www.github.com/NitramMann21/JTA/blob/development/.tutorials/HOW_TO_GET_USER_ACCESS_TOKENS.md">this guide</a> on the JTA's GitHub repository.<br><br>
+            Please note that you can only set one user access token and that you can only manage the user who was logged in when authorizing.<br><br>
+            Here is a list of some methods which need user access tokens:
+            <ul>
+              <li><span class="codeblock">Channel#setStreamTitle(String)</span></li>
+              <li><span class="codeblock">Video#delete()</span></li>
+              <li><span class="codeblock">User#getBlockedUsers()</span></li>
+              <li><span class="codeblock">Channel#startPrediction(String, String, String, int)</span></li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<title>JTA Guide - GitHub Pages</title>
+		<link rel="stylesheet" href="stylesheet.css"/>
+		<meta charset="utf-8"/>
+	</head>
+  <body>
+    <div id="all">
+      <div id="header">
+        <ul id="topnavigation">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="https://www.github.com/NitramMann21/JTA">GitHub</a></li>
+        </ul>
+      </div>
+
+      <div id="body">
+        <div id="navigation">
+          <ul>
+            <li><a href="index.html">Welcome</a></li>
+            <li><a href="gettingstarted.html">Getting started</a></li>
+            <li><a href="management.html">Management</a></li>
+            <li><a href="creatingachatbot.html">Creating a Chatbot</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="contributing.html">Contributing</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div id="page">
+          <h1>Getting started</h1>
+          <h2>Download</h2>
+          <p>
+            To get the API, you need a Maven project. You can see the maven repository and the dependency here:<br>
+          </p>
+          <p class="codeblock">
+            &lt;repository&gt;<br>
+            &nbsp;  &lt;id&gt;jitpack.io&lt;/id&gt;<br>
+            &nbsp;  &lt;url&gt;https://jitpack.io&lt;/url&gt;<br>
+            &lt;/repository&gt;<br><br>
+            &lt;dependency&gt;<br>
+            &nbsp;  &lt;groupId&gt;com.github.NitramMann21&lt;/url&gt;<br>
+            &nbsp;  &lt;artifactId&gt;JTA&lt;/id&gt;<br>
+            &nbsp;  &lt;version&gt;VERSION&lt;/id&gt;<br>
+            &lt;/dependency&gt;<br>
+          </p>
+          <p>
+            The library has been coded in Java 11. In consequence, you should use Java 11 or newer.<br>
+          </p>
+          <h2>Creating your first bot</h2>
+          <p>
+            Creating a bot is actually surprisingly simple*. Create an application in the <a href="https://dev.twitch.tv/console/apps">Twitch Developer Console</a>, which requires 2FA enabled. After initializing the API and calling <span class="codeblock">JTABotBuilder.create("YOURCLIENTID", "YOURCLIENTSECRET");</span> you already have got a bot that can do almost everything the library offers.
+          </p>
+          <p class="codeblock">
+            <span class="keyword">public static void</span> main(<span class="keyword">String</span>[] args) {<br>
+              &nbsp;  <span class="comment">// Initialize the library.</span><br>
+              &nbsp;  <span class="class">JTA</span><span class="keyword">.</span>initialize();<br><br>
+              &nbsp;  <span class="comment">// Create a bot.</span><br>
+              &nbsp;  <span class="class">JTABotBuilder</span><span class="keyword">.</span>create(clientId, );<br>
+            }
+          </p>
+          <p style="font-size: 0.75em;"><br><br><br>*See Ceave Gaming</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

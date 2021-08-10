@@ -4,6 +4,7 @@
 }
 
 div#header {
+  padding: 1.5em;
   font-size: 0.75em;
   background-color: purple;
 }
@@ -37,6 +38,8 @@ body {
 
 ul#navigation li {
   display: inline-block;
+  margin-left: 0.75em;
+  margin-right: 0.75em;
 }
 
 div#header ul {
