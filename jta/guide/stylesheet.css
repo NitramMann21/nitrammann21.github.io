@@ -129,6 +129,10 @@ p.codeblock span.string {
   color: #032F62;
 }
 
+p.codeblock span.definition {
+  color: #8250DF;
+}
+
 span.codeblock {
   background-color: #F3F5F7;
   font-family: ui-monospace, SFMono-Regular, SFMono, Menlo, Consolas, Liberation, Mono, monospace;
