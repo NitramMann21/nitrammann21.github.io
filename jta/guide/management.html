@@ -32,7 +32,7 @@
             You may want to manage some stuff, e.g. a channel's stream title. Just call <span class="codeblock">Channel#setStreamTitle(String)</span> and...<br><br>
             Nope, not gonna work. You will get an <span class="codeblock">ErrorResponseException</span>. What does this mean and how can you fix this? The reason is simple: You don't have the permission to manage the stream.<br>
             Now, how can you fix this? You need to set the user access token. Next question: How do you get user access tokens? You can follow <a href="https://www.github.com/NitramMann21/JTA/blob/development/.tutorials/HOW_TO_GET_USER_ACCESS_TOKENS.md">this guide</a> on the JTA's GitHub repository.<br><br>
-            Please note that you can only set one user access token and that you can only manage the user who was logged in when authorizing.<br><br>
+            Please note that you can only manage the user who was logged in when authorizing.<br><br>
             Here is a list of some methods which need user access tokens:
             <ul>
               <li><span class="codeblock">Channel#setStreamTitle(String)</span></li>
