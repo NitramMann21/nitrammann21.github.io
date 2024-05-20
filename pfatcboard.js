@@ -43,6 +43,7 @@ const airports = {
         ],
         charts: [
             "Ground Movement",
+            "SIDs 03L & 03R",
             "SIDs 21L & 21R",
             "STARs 03L & 03R",
             "STARs 21L & 21R"
