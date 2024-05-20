@@ -1,31 +1,23 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Nitram21 - GitHub Pages</title>
-		<link rel="stylesheet" href="stylesheet.css"/>
-		<meta charset="utf-8"/>
-	</head>
-	<body>
-		<div id="all">
-			<div id="header">
-				<h1>
-					<ul id="navigation">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="jta/index.html">JTA</a></li>
-						<li><a href="jta/guide/index.html">JTA Guide</a></li>
-					</ul>
-				</h1>
-			</div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project Flight ATC Board</title>
+        <link rel="stylesheet" href="pfatcboard.css">
+    </head>
+    <body>
+        <div id="header">
+            <select onchange="airportChange()" id="airportSelect"></select>
+        </div>
+        <div id="main">
+            <div id="frequencyContainer"></div>
+            <div id="chartDisplay">
+                <button class="rounded" onclick="previousChart()" style="margin-left: 5em;">&lt;</button>
+                <img src="charts/EGKK/Ground Movement.png" height="480px">
+                <button class="rounded" onclick="nextChart()" style="margin-right: 5em;">&gt;</button>
+            </div>
+        </div>
 
-			<div id="body">
-				<div id="text">
-					<p>
-						Hey there!<br>
-						I'm Nitram21, a Java developer. Currently, my biggest project is the JTA, an API which can be used for coding Twitch bots.<br><br>
-						GitHub: <a href="https://www.github.com/NitramMann21/nitrammann21.github.io">https://www.github.com/NitramMann21/nitrammann21.github.io</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</body>
+        <script src="pfatcboard.js"></script>
+    </body>
 </html>

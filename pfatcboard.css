@@ -1,0 +1,70 @@
+html, body {
+    max-height: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0 !important;
+    font-family: Tahoma, sans-serif;
+    background: linear-gradient(0deg, #202020, #505050);
+}
+
+#airportSelect {
+    margin: 1em 0;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+    appearance: none;
+    border-radius: 0.5em;
+    outline: 0;
+    width: 20%;
+    height: 10%;
+    margin-left: 40%;
+    margin-right: 40%;
+    color: #ffffff;
+    background-color: #ffffff99;
+}
+
+#airportSelect > option {
+    font-size: large;
+    color: #000000;
+}
+
+#main {
+    color: #f0f0f0;
+    background-color: #00000044;
+    width: 100%;
+    height: 100%;
+}
+
+#frequencyContainer {
+    display: flex;
+    font-size: large;
+    font-weight: bold;
+    padding: 1em;
+    justify-content: space-evenly;
+}
+
+#chartDisplay {
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+}
+
+.rounded {
+    margin: auto;
+    border: none;
+    border-radius: 50%;
+    background-color: #ffffff66;
+    width: 4em;
+    height: 4em;
+    cursor: pointer;
+}
+
+img {
+    max-height: 80%;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
