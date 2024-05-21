@@ -48,6 +48,7 @@ body {
     font-weight: bold;
     padding: 1em;
     justify-content: space-evenly;
+    background-color: #00000044;
 }
 
 #chartDisplay {
