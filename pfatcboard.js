@@ -88,6 +88,7 @@ let currentAirport = "EGKK";
 let chartIndex = 0;
 
 const airportSelect = document.querySelector("#airportSelect");
+const weatherText = document.querySelector("#weather");
 const frequencyContainer = document.querySelector("#frequencyContainer");
 const chartDisplay = document.querySelector("#chartDisplay > img");
 
@@ -108,6 +109,8 @@ function airportChange() {
     for(const frequency of frequencies) {
         frequencyContainer.innerHTML += "<div>" + frequency + "</div>";
     }
+
+    updateMetar();
 }
 
 function nextChart() {
@@ -126,4 +129,21 @@ function previousChart() {
     chartDisplay.src = "charts/" + currentAirport + "/" + airports[currentAirport].charts[chartIndex] + ".png";
 }
 
+function updateMetar() {
+    console.log("Updating METAR");
+    fetch("https://metar.vatsim.net/metar.php?id=" + currentAirport).then(response => {
+        return response.text();
+    }).then(metar => {
+        const metarSplit = metar.split(" ");
+        weatherText.innerHTML = metarSplit[1].slice(2, 8);
+        for(const part of metarSplit) {
+            if(part.endsWith("KT"))
+                weatherText.innerHTML += " " + part.slice(0, 3) + "/" + part.slice(3, 5);
+            if(part.startsWith("Q"))
+                weatherText.innerHTML += " " + part;
+        }
+    });
+}
+
 airportChange();
+setInterval(updateMetar, 60000);

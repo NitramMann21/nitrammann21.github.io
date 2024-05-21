@@ -10,7 +10,7 @@ body {
 }
 
 #airportSelect {
-    margin: 1em 0;
+    margin: 1em 40% 0.25em 40%;
     font-size: xx-large;
     font-weight: bold;
     text-align: center;
@@ -19,10 +19,15 @@ body {
     outline: 0;
     width: 20%;
     height: 10%;
-    margin-left: 40%;
-    margin-right: 40%;
     color: #ffffff;
     background-color: #ffffff99;
+}
+
+#weather {
+    margin: 0.25em 30% 1em 30%;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
 }
 
 #airportSelect > option {
