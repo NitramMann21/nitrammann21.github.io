@@ -98,7 +98,8 @@ const airports = {
             "MDCS_CTR 124.3 MHz",
         ],
         charts: [
-            "Ground Movement"
+            "Ground Movement",
+            "Apron"
         ]
     },
     "MDAB": {
