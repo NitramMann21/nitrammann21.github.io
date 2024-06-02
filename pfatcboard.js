@@ -92,6 +92,7 @@ const airports = {
     "MDPC": {
         name: "Punta Cana International Airport",
         frequencies: [
+            "MDPC_DEL 121.650 MHz",
             "MDPC_GND 121.9 MHz",
             "MDPC_TWR 118.8 MHz",
             "MDPC_APP 119.750 MHz",
