@@ -96,7 +96,7 @@ const airports = {
             "MDPC_GND 121.9 MHz",
             "MDPC_TWR 118.8 MHz",
             "MDPC_APP 119.750 MHz",
-            "MDCS_CTR 124.3 MHz",
+            "MDCS_CTR 124.3 MHz"
         ],
         charts: [
             "Ground Movement",
@@ -121,7 +121,8 @@ const airportSelect = document.querySelector("#airportSelect");
 const airportNameText = document.querySelector("#airportName");
 const weatherText = document.querySelector("#weather");
 const frequencyContainer = document.querySelector("#frequencyContainer");
-const chartDisplay = document.querySelector("#chartDisplay > img");
+const chartDisplay = document.querySelector("#chartDisplay");
+const chart = document.querySelector("#chart");
 
 for(const airport of Object.keys(airports)) {
     var option = document.createElement("option");
@@ -133,7 +134,6 @@ airportSelect.selectedIndex = Object.keys(airports).indexOf(currentAirport);
 function airportChange() {
     currentAirport = airportSelect.options[airportSelect.selectedIndex].text;
     chartIndex = 0;
-    chartDisplay.src = "charts/" + currentAirport + "/" + airports[currentAirport].charts[chartIndex] + ".png";
 
     airportNameText.innerHTML = airports[currentAirport].name;
 
@@ -143,26 +143,31 @@ function airportChange() {
         frequencyContainer.innerHTML += "<div>" + frequency + "</div>";
     }
 
-    updateMetar();
+    updateMetar(true);
 }
 
 function nextChart() {
     chartIndex++;
     if(chartIndex > airports[currentAirport].charts.length - 1)
         chartIndex = 0;
-
-    chartDisplay.src = "charts/" + currentAirport + "/" + airports[currentAirport].charts[chartIndex] + ".png";
+    updateChart();
 }
 
 function previousChart() {
     chartIndex--;
     if(chartIndex < 0)
         chartIndex = airports[currentAirport].charts.length - 1;
-
-    chartDisplay.src = "charts/" + currentAirport + "/" + airports[currentAirport].charts[chartIndex] + ".png";
+    updateChart();
 }
 
-function updateMetar() {
+function updateChart() {
+    chart.style.backgroundImage = "url(\"charts/" + currentAirport + "/" + airports[currentAirport].charts[chartIndex] + ".png\")";
+
+    let chartSize = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - chartDisplay.offsetTop;
+    chartDisplay.style.height = chartSize + "px";
+}
+
+function updateMetar(updateChartAfterLoaded = false) {
     console.log("Updating METAR");
     fetch("https://metar.vatsim.net/metar.php?id=" + currentAirport).then(response => {
         return response.text();
@@ -170,13 +175,21 @@ function updateMetar() {
         const metarSplit = metar.split(" ");
         weatherText.innerHTML = metarSplit[1].slice(2, 8);
         for(const part of metarSplit) {
-            if(part.endsWith("KT"))
+            if(part.endsWith("KT") && part.length == 7)
                 weatherText.innerHTML += " " + part.slice(0, 3) + "/" + part.slice(3, 5);
             if(part.startsWith("Q"))
                 weatherText.innerHTML += " " + part;
         }
+
+        if(updateChartAfterLoaded)
+            updateChart();
     });
 }
+
+onresize = (event) => {
+    let chartSize = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - chartDisplay.offsetTop;
+    chartDisplay.style.height = chartSize + "px";
+};
 
 airportChange();
 setInterval(updateMetar, 60000);
