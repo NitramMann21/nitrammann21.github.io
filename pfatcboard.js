@@ -19,7 +19,9 @@ const airports = {
             "EGHI_APP 122.725 MHz"
         ],
         charts: [
-            "Ground Movement"
+            "Ground Movement",
+            "SIDs 02 & 20",
+            "STARs 02 & 20"
         ]
     },
     "EGKK": {
