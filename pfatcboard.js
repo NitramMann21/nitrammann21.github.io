@@ -19,9 +19,7 @@ const airports = {
             "EGHI_APP 122.725 MHz"
         ],
         charts: [
-            "Ground Movement",
-            "SIDs 02 & 20",
-            "STARs 02 & 20"
+            "Ground Movement"
         ]
     },
     "EGKK": {
@@ -91,6 +89,25 @@ const airports = {
             "STARs 14 & 32"
         ]
     },
+    "MDAB": {
+        name: "Arroyo Barril Airport",
+        frequencies: [
+            "MDAB_TWR 118.450 MHz"
+        ],
+        charts: [
+            "Ground Movement"
+        ]
+    },
+    "MDCR": {
+        name: "Cabo Rojo Airport",
+        frequencies: [
+            "MDCR_TWR 127.7 MHz",
+            "MDCR_APP 125.0 MHz"
+        ],
+        charts: [
+            "Ground Movement"
+        ]
+    },
     "MDPC": {
         name: "Punta Cana International Airport",
         frequencies: [
@@ -105,10 +122,20 @@ const airports = {
             "Apron"
         ]
     },
-    "MDAB": {
-        name: "Arroyo Barril Airport",
+    "MDST": {
+        name: "Cibao International Airport",
         frequencies: [
-            "MDAB_TWR 118.450 MHz"
+            "MDST_GND 121.9 MHz",
+            "MDST_TWR 118.3 MHz"
+        ],
+        charts: [
+            "Ground Movement"
+        ]
+    },
+    "MTCA": {
+        name: "Antoine-Simon Airport",
+        frequencies: [
+            "MTCA_TWR 118.5 MHz"
         ],
         charts: [
             "Ground Movement"
@@ -174,13 +201,16 @@ function updateMetar(updateChartAfterLoaded = false) {
     fetch("https://metar.vatsim.net/metar.php?id=" + currentAirport).then(response => {
         return response.text();
     }).then(metar => {
-        const metarSplit = metar.split(" ");
-        weatherText.innerHTML = metarSplit[1].slice(2, 8);
-        for(const part of metarSplit) {
-            if(part.endsWith("KT") && part.length == 7)
-                weatherText.innerHTML += " " + part.slice(0, 3) + "/" + part.slice(3, 5);
-            if(part.startsWith("Q"))
-                weatherText.innerHTML += " " + part;
+        weatherText.innerHTML = "";
+        if(metar.trim().length != 0) {
+            const metarSplit = metar.split(" ");
+            weatherText.innerHTML = metarSplit[1].slice(2, 8);
+            for(const part of metarSplit) {
+                if(part.endsWith("KT") && part.length == 7)
+                    weatherText.innerHTML += " " + part.slice(0, 3) + "/" + part.slice(3, 5);
+                if(part.startsWith("Q"))
+                    weatherText.innerHTML += " " + part;
+            }
         }
 
         if(updateChartAfterLoaded)

@@ -66,8 +66,12 @@ p#airportName {
     border: none;
     border-radius: 50%;
     background-color: #ffffff66;
+    color: white;
+    font-weight: bold;
     width: 4em;
     height: 4em;
+    min-width: 4em;
+    min-height: 4em;
     cursor: pointer;
 }
 
